@@ -27,7 +27,7 @@ app.use(middleware);
 // Routes
 app.use('/', routes);
 
-const port = 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`Serveur écoute sur http://localhost:${port}`);
+  console.log(`Serveur écoute sur le port ${port}`);
 });
