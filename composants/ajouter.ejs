@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter</title>
+    <style>
+    form.add-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    </style>
+</head>
+<body>
+       <!-- Formulaire d'ajout -->
+    <form class="add-form" action="./ajouter" method="POST">
+      <input type="text" name="text" placeholder="Nouveau texte..." required />
+      <button type="submit">Ajouter</button>
+    </form>
+      <div>
+<h2>Analyse des en-têtes de la requête</h2>
+<ul>
+  <li><%= methods%></li>
+  <li><%= url%></li>
+  <li><%= host%></li>
+  <li><%= status%></li>
+</ul>
+<pre><%= JSON.stringify(requestReport, null, 2) %></pre>
+
+<h2>Analyse des en-têtes de la réponse</h2>
+<pre><%= JSON.stringify(responseReport, null, 2) %></pre>
+
+  </div>
+
+</body>
+</html>

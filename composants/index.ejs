@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accueil</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form.add-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .btn-edit {
+      background-color: #f39c12;
+    }
+
+    .btn-edit:hover {
+      background-color: #d35400;
+    }
+
+    .btn-delete {
+      background-color: #e74c3c;
+    }
+
+    .btn-delete:hover {
+      background-color: #c0392b;
+    }
+
+    .action-buttons form {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+<div style="display: flex;justify-content: space-around;">
+  <div>
+    <h1>Liste des Textes</h1>
+    <!-- Tableau -->
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Texte</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < resultat.length; i++) { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= resultat[i].texte %></td>
+                <td>
+                    <div style="display: flex;">
+              <form action="/delete/<%= resultat[i].id %>" method="POST" onsubmit="return confirm('Supprimer ce texte ?');">
+                <button class="btn-delete">Supprimer</button>
+              </form>
+              </div>
+              </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div>
+<h2>Analyse des en-têtes de la requête</h2>
+<ul>
+  <li><%= methods%></li>
+  <li><%= url%></li>
+  <li><%= host%></li>
+  <li><%= status%></li>
+</ul>
+<pre><%= JSON.stringify(requestReport, null, 2) %></pre>
+<h2>Analyse des en-têtes de la réponse</h2>
+<pre><%= JSON.stringify(responseReport, null, 2) %></pre>
+  </div>
+</div>
+</body>
+</html>
