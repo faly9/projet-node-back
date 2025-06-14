@@ -4,6 +4,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const connection = require('express-myconnection');
 const mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 
 const routes = require('./routes');
 const dbConfig = require('./config/database');
