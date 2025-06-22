@@ -12,11 +12,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-myconnection": "^1.0.4",
     "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
     "nodemon": "^3.1.10"
   }
 }
